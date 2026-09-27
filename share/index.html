@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f4ee" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; media-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'"
+    />
+    <meta
+      name="description"
+      content="Open a checklist shared with you in Yormio."
+    />
+    <meta property="og:title" content="A checklist was shared with you — Yormio" />
+    <meta
+      property="og:description"
+      content="Open it in Yormio to preview and add your own copy."
+    />
+    <meta property="og:type" content="website" />
+    <title>Shared checklist — Yormio</title>
+    <link rel="stylesheet" href="/share/share.css" />
+    <script src="/share/share.js" defer></script>
+  </head>
+  <body>
+    <main class="share-page">
+      <div class="ambient ambient-a" aria-hidden="true"></div>
+      <div class="ambient ambient-b" aria-hidden="true"></div>
+
+      <section class="share-card" aria-labelledby="share-title">
+        <a class="brand" href="/" aria-label="Yormio home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </span>
+          <span class="brand-name">Yormio</span>
+        </a>
+
+        <div class="share-hero">
+          <div class="checklist-glyph" aria-hidden="true">
+            <span class="glyph-check">✓</span>
+            <span class="glyph-lines"><i></i><i></i><i></i></span>
+          </div>
+
+          <p class="eyebrow">Shared checklist</p>
+          <h1 id="share-title">A checklist was shared with you</h1>
+          <p class="lede">Open it in Yormio to preview and add your own copy.</p>
+        </div>
+
+        <div class="status-panel" id="status-panel" hidden>
+          <p id="status-message" role="alert"></p>
+        </div>
+
+        <button
+          class="primary-cta"
+          id="open-yormio"
+          type="button"
+          aria-describedby="open-note"
+          disabled
+        >
+          <span>Open in Yormio</span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="open-note" id="open-note">
+          The Yormio app is required to preview this shared checklist.
+        </p>
+
+        <div class="divider" aria-hidden="true"><span></span></div>
+
+        <section class="download-section" aria-labelledby="download-title">
+          <p class="download-kicker" id="download-title">Don’t have Yormio yet?</p>
+          <p class="download-copy">After installing, open this shared link again to continue.</p>
+
+          <div class="store-grid">
+            <a class="store-card" id="app-store-link" aria-disabled="true">
+              <span class="store-label">Download on the</span>
+              <strong>App Store</strong>
+            </a>
+            <a class="store-card" id="google-play-link" aria-disabled="true">
+              <span class="store-label">Get it on</span>
+              <strong>Google Play</strong>
+            </a>
+          </div>
+          <p class="store-note" id="store-note">Store links will be available when Yormio is published.</p>
+        </section>
+
+        <footer class="share-footer">
+          <a href="https://yormio-privacy-terms-page.netlify.app/privacy/" rel="noreferrer">Privacy</a>
+          <a href="https://yormio-privacy-terms-page.netlify.app/terms/" rel="noreferrer">Terms</a>
+          <a href="https://yormio-privacy-terms-page.netlify.app/support/" rel="noreferrer">Support</a>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

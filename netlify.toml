@@ -13,3 +13,29 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Share-link landing route. The raw capability token stays in the URL fragment,
+# so Netlify never receives it as part of the HTTP request.
+[[redirects]]
+  from = "/share"
+  to = "/share/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/share/"
+  to = "/share/index.html"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/share*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; media-src 'none'; frame-src 'none'; child-src 'none'; worker-src 'none'; manifest-src 'none'"
+    Referrer-Policy = "no-referrer"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Cache-Control = "no-store"

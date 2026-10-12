@@ -85,6 +85,14 @@
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
 
+  const film = document.querySelector('#yormio-film');
+  const filmFrame = film?.closest('.video-frame');
+  const filmPlay = filmFrame?.querySelector('.video-play');
+  filmPlay?.addEventListener('click', () => film.play());
+  film?.addEventListener('play', () => filmFrame.classList.add('is-playing'));
+  film?.addEventListener('pause', () => filmFrame.classList.remove('is-playing'));
+  film?.addEventListener('ended', () => filmFrame.classList.remove('is-playing'));
+
   const filters = document.querySelectorAll('.screen-filter');
   const cards = document.querySelectorAll('.screen-card');
   filters.forEach((button) => {

@@ -40,6 +40,7 @@
         </button>
 
         <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#how-it-works">How it works</a>
           <a href="#features">Features</a>
           <a href="#screens">Screens</a>
           <a href="#privacy">Privacy</a>
@@ -61,7 +62,7 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#download">Get Yormio</a>
-              <a class="button button-ghost" href="#screens">See the app</a>
+              <a class="button button-ghost" href="#how-it-works">Watch how it works</a>
             </div>
             <div class="hero-meta" aria-label="Yormio highlights">
               <div><strong>Voice + text</strong><span>Fast capture</span></div>
@@ -74,6 +75,40 @@
             <div class="hero-image-frame">
               <img src="./assets/yormio-branding.png" alt="Yormio app overview with reminders, voice capture and calendar" />
               <div class="hero-sheen" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-section" id="how-it-works" aria-labelledby="video-title">
+        <div class="shell video-grid">
+          <div class="video-copy reveal">
+            <div class="eyebrow"><span></span>Yormio in motion</div>
+            <h2 id="video-title">One sentence.<br />Three reminders.</h2>
+            <p>Tap the mic and say what you need. Yormio separates the tasks, fills in the details, and lets you review each reminder before you approve it.</p>
+            <div class="video-caption">
+              <span class="video-caption-icon" aria-hidden="true">▶</span>
+              <span>Watch our first film <small>35 seconds · Sound on</small></span>
+            </div>
+          </div>
+
+          <div class="video-showcase reveal reveal-late">
+            <div class="video-glow" aria-hidden="true"></div>
+            <div class="video-frame">
+              <video
+                id="yormio-film"
+                controls
+                playsinline
+                preload="metadata"
+                poster="./assets/videos/how-yormio-works-poster.jpg"
+                aria-label="How Yormio works: say multiple tasks, review each reminder, and approve them"
+              >
+                <source src="./assets/videos/en:how-yormio-works-v1.mp4" type="video/mp4" />
+                Your browser does not support this video.
+              </video>
+              <button class="video-play" type="button" aria-label="Play How Yormio Works video" aria-controls="yormio-film">
+                <span aria-hidden="true">▶</span>
+              </button>
             </div>
           </div>
         </div>

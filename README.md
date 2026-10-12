@@ -47,6 +47,8 @@ The main brand artwork is stored as:
 assets/yormio-branding.png
 ```
 
+The 35-second introduction video appears immediately after the hero section. Its source and preview frame are stored in `assets/videos/` as `en:how-yormio-works-v1.mp4` and `how-yormio-works-poster.jpg`.
+
 Official Yormio logo assets live under:
 
 ```text
@@ -116,6 +118,7 @@ The project can be deployed by connecting the GitHub repository to Netlify or by
 yormio-landing-page/
 ├── assets/
 │   ├── logos/
+│   ├── videos/
 │   ├── yormio-branding.png
 │   └── 01...10 screenshot files
 ├── config.js

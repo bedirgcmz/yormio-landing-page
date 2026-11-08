@@ -57,16 +57,16 @@ assets/logos/
 
 ## Store availability
 
-App Store and Google Play buttons are controlled from `config.js`.
+App Store and Google Play buttons on the landing page and checklist share page are controlled from `config.js`.
 
-When the public store listings are ready, set:
+The public store listings are:
 
 ```js
-appStoreUrl: "https://...",
-googlePlayUrl: "https://...",
+appStoreUrl: "https://apps.apple.com/app/yormio/id6812642125",
+googlePlayUrl: "https://play.google.com/store/apps/details?id=com.yormio.app",
 ```
 
-Until then, the landing page keeps the store buttons inactive instead of linking to placeholder pages.
+The checklist share page enables store buttons for valid shared links.
 
 ## Privacy, Terms and Support
 

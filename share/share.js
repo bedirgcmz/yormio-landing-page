@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_STORE_URL = '...';
-const GOOGLE_PLAY_URL = '...';
+const APP_STORE_URL = window.YORMIO_CONFIG?.appStoreUrl || '';
+const GOOGLE_PLAY_URL = window.YORMIO_CONFIG?.googlePlayUrl || '';
 const TOKEN_PATTERN = /^[0-9a-f]{64}$/i;
 
 const openButton = document.getElementById('open-yormio');

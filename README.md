@@ -106,11 +106,40 @@ Then open:
 http://localhost:8080
 ```
 
+## Shared checklist localization
+
+The `/share` page is served from `share/index.html`, `share/share.js`, and
+`share/share.css`. It uses the first supported language in `navigator.languages`
+(English, Turkish, German, or Swedish), normalizes regional codes such as `tr-TR`,
+and defaults to English if none match. If the preference list is unavailable or
+empty, it checks `navigator.language` before defaulting to English.
+
+Translations live in `share/share.js`; HTML uses `data-i18n` attributes while
+retaining English content as the initial fallback. Store names remain unchanged.
+No translation service or other network request is needed. Share tokens are read
+only from the URL fragment and passed to `yormio://share/<token>` only when the
+recipient presses the open button.
+
+Run the dependency-free localization and share-link checks with Node.js 18+:
+
+```bash
+node --test tests/share.test.cjs
+```
+
+These checks execute the page scripts with a simulated DOM and browser
+preferences; they do not verify browser layout or launch the installed app.
+
 ## Netlify deployment
 
 The project can be deployed by connecting the GitHub repository to Netlify or by uploading the project folder directly.
 
 `netlify.toml` publishes the project root and includes the current security-header configuration.
+There is no build command. To release the share-page changes, commit and push to
+the branch configured for the existing `yormio-app` Netlify site, then confirm the
+production deploy succeeds. For a manual deployment, upload the updated project
+root to that existing site. Keep `config.js`, `share/`, and `netlify.toml` included;
+do not deploy only the `share/` folder. Verify `/share` after deployment with each
+browser language and a disposable valid or invalid fragment.
 
 ## Project structure
 

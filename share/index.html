@@ -11,11 +11,13 @@
     />
     <meta
       name="description"
+      data-i18n-content="metaDescription"
       content="Open a checklist shared with you in Yormio."
     />
-    <meta property="og:title" content="A checklist was shared with you — Yormio" />
+    <meta data-i18n-content="title" property="og:title" content="A checklist was shared with you — Yormio" />
     <meta
       property="og:description"
+      data-i18n-content="description"
       content="Open it in Yormio to preview and add your own copy."
     />
     <meta property="og:type" content="website" />
@@ -30,7 +32,7 @@
       <div class="ambient ambient-b" aria-hidden="true"></div>
 
       <section class="share-card" aria-labelledby="share-title">
-        <a class="brand" href="/" aria-label="Yormio home">
+        <a class="brand" href="/" aria-label="Yormio home" data-i18n-aria-label="home">
           <span class="brand-mark" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span>
           </span>
@@ -43,9 +45,9 @@
             <span class="glyph-lines"><i></i><i></i><i></i></span>
           </div>
 
-          <p class="eyebrow">Shared checklist</p>
-          <h1 id="share-title">A checklist was shared with you</h1>
-          <p class="lede">Open it in Yormio to preview and add your own copy.</p>
+          <p class="eyebrow" data-i18n="eyebrow">Shared checklist</p>
+          <h1 id="share-title" data-i18n="heading">A checklist was shared with you</h1>
+          <p class="lede" data-i18n="description">Open it in Yormio to preview and add your own copy.</p>
         </div>
 
         <div class="status-panel" id="status-panel" hidden>
@@ -59,36 +61,36 @@
           aria-describedby="open-note"
           disabled
         >
-          <span>Open in Yormio</span>
+          <span data-i18n="open">Open in Yormio</span>
           <span class="cta-arrow" aria-hidden="true">→</span>
         </button>
-        <p class="open-note" id="open-note">
+        <p class="open-note" id="open-note" data-i18n="openNote">
           The Yormio app is required to preview this shared checklist.
         </p>
 
         <div class="divider" aria-hidden="true"><span></span></div>
 
         <section class="download-section" aria-labelledby="download-title">
-          <p class="download-kicker" id="download-title">Don’t have Yormio yet?</p>
-          <p class="download-copy">After installing, open this shared link again to continue.</p>
+          <p class="download-kicker" id="download-title" data-i18n="downloadTitle">Don’t have Yormio yet?</p>
+          <p class="download-copy" data-i18n="downloadCopy">After installing, open this shared link again to continue.</p>
 
           <div class="store-grid">
             <a class="store-card" id="app-store-link" aria-disabled="true">
-              <span class="store-label">Download on the</span>
+              <span class="store-label" data-i18n="appStore">Download on the</span>
               <strong>App Store</strong>
             </a>
             <a class="store-card" id="google-play-link" aria-disabled="true">
-              <span class="store-label">Get it on</span>
+              <span class="store-label" data-i18n="googlePlay">Get it on</span>
               <strong>Google Play</strong>
             </a>
           </div>
-          <p class="store-note" id="store-note">Store links will be available when Yormio is published.</p>
+          <p class="store-note" id="store-note" data-i18n="storesUnavailable">Store links will be available when Yormio is published.</p>
         </section>
 
         <footer class="share-footer">
-          <a href="https://yormio-privacy-terms-page.netlify.app/privacy/" rel="noreferrer">Privacy</a>
-          <a href="https://yormio-privacy-terms-page.netlify.app/terms/" rel="noreferrer">Terms</a>
-          <a href="https://yormio-privacy-terms-page.netlify.app/support/" rel="noreferrer">Support</a>
+          <a href="https://yormio-privacy-terms-page.netlify.app/privacy/" rel="noreferrer" data-i18n="privacy">Privacy</a>
+          <a href="https://yormio-privacy-terms-page.netlify.app/terms/" rel="noreferrer" data-i18n="terms">Terms</a>
+          <a href="https://yormio-privacy-terms-page.netlify.app/support/" rel="noreferrer" data-i18n="support">Support</a>
         </footer>
       </section>
     </main>

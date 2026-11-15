@@ -48,18 +48,27 @@
 
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');
+  const setNavOpen = (open) => {
+    navToggle?.setAttribute('aria-expanded', String(open));
+    navToggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    nav?.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
+  };
   navToggle?.addEventListener('click', () => {
     const open = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!open));
-    nav?.classList.toggle('is-open', !open);
-    document.body.classList.toggle('nav-open', !open);
+    setNavOpen(!open);
+  });
+  if (navToggle && nav) document.documentElement.classList.add('nav-ready');
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navToggle?.getAttribute('aria-expanded') === 'true') {
+      setNavOpen(false);
+      navToggle.focus();
+    }
   });
 
   nav?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      navToggle?.setAttribute('aria-expanded', 'false');
-      nav?.classList.remove('is-open');
-      document.body.classList.remove('nav-open');
+      setNavOpen(false);
     });
   });
 
@@ -80,7 +89,10 @@
       },
       { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
     );
-    reveals.forEach((el) => observer.observe(el));
+    reveals.forEach((el) => {
+      el.classList.add('is-pending');
+      observer.observe(el);
+    });
   } else {
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
@@ -98,7 +110,10 @@
   filters.forEach((button) => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
-      filters.forEach((item) => item.classList.toggle('is-active', item === button));
+      filters.forEach((item) => {
+        item.classList.toggle('is-active', item === button);
+        item.setAttribute('aria-pressed', String(item === button));
+      });
       cards.forEach((card) => {
         const show = filter === 'all' || card.dataset.theme === filter;
         card.classList.toggle('is-filtered-out', !show);

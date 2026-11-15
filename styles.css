@@ -53,6 +53,29 @@ a {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
+}
+
+:where(a, button):focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 4px;
+}
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 101;
+  padding: 12px 18px;
+  color: var(--ink);
+  background: var(--paper);
+  border-radius: 12px;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+section[id] {
+  scroll-margin-top: 90px;
 }
 .shell {
   width: var(--shell);
@@ -1097,7 +1120,36 @@ h1 em {
   letter-spacing: 0.02em;
 }
 
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 40px;
+}
+.faq-list article {
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.faq-list h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.faq-list p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+.faq-list a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Content stays visible when scripts are unavailable. JS opts into reveals. */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+.reveal.is-pending {
   opacity: 0;
   transform: translateY(26px);
   transition:
@@ -1157,7 +1209,7 @@ h1 em {
   .header-inner {
     min-height: 68px;
   }
-  .nav-toggle {
+  .nav-ready .nav-toggle {
     display: block;
   }
   .nav-toggle[aria-expanded="true"] span:nth-child(1) {
@@ -1169,7 +1221,7 @@ h1 em {
   .nav-toggle[aria-expanded="true"] span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
-  .main-nav {
+  .nav-ready .main-nav {
     display: none;
     position: fixed;
     inset: 0;
@@ -1183,6 +1235,20 @@ h1 em {
   }
   .main-nav.is-open {
     display: flex;
+  }
+  /* Keep navigation usable when JavaScript is disabled. */
+  html:not(.nav-ready) .site-header {
+    position: relative;
+  }
+  html:not(.nav-ready) .header-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 12px;
+  }
+  html:not(.nav-ready) .main-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
   }
   .main-nav .nav-cta {
     padding: 13px 22px;
@@ -1226,6 +1292,9 @@ h1 em {
     max-width: 650px;
   }
   .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .faq-list {
     grid-template-columns: 1fr;
   }
   .feature-card {
@@ -1387,7 +1456,8 @@ h1 em {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .reveal {
+  .reveal,
+  .reveal.is-pending {
     opacity: 1;
     transform: none;
   }

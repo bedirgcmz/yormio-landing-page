@@ -11,12 +11,14 @@ This repository contains the official **Yormio landing page**, built as a lightw
 - **Voice to reminder** — speak naturally and turn a thought into a structured reminder.
 - **Multiple actions from one capture** — extract more than one reminder or task from a single input.
 - **AI-powered lists** — turn shopping, packing, and to-do ideas into organized checklists.
-- **Paste text with AI** — paste text and let Yormio identify useful reminders and list items.
+- **Paste text with AI (Premium)** — paste text and let Yormio identify useful reminders and list items.
 - **Reminder details** — keep date, time, alert, description, and supported repeat rules together.
 - **Built-in calendar** — see scheduled reminders and lists in a simple calendar view.
 - **Local-first experience** — manual reminders and lists remain useful even without AI or a network connection.
 - **Light and dark themes** — designed for both warm light mode and deep teal dark mode.
-- **Multilingual** — Yormio supports English, Swedish, Turkish, and German.
+- **Checklist sharing** — recipients import independent copies; changes do not sync between copies.
+- **Premium widgets** — certain widgets require Premium.
+- **Multilingual** — the app supports English, Swedish, Turkish, and German; the product landing page is English.
 
 ## Designed for quick capture
 
@@ -128,6 +130,31 @@ node --test tests/share.test.cjs
 
 These checks execute the page scripts with a simulated DOM and browser
 preferences; they do not verify browser layout or launch the installed app.
+
+## SEO checks and review
+
+The product page has static metadata, a canonical URL, MobileApplication JSON-LD,
+and crawlable product information. `robots.txt` allows search crawlers and points
+to `sitemap.xml`. The checklist-link utility page uses `noindex, follow`.
+
+Run all dependency-free checks:
+
+```bash
+node --test tests/*.test.cjs
+python3 tests/seo_check.py
+node --check script.js
+node --check config.js
+node --check share/share.js
+git diff --check
+```
+
+No build or lint command is configured. The canonical site origin is currently
+`https://yormio-app.netlify.app/`; update metadata, JSON-LD, robots, sitemap and
+SEO checks together if the production domain changes.
+
+See [SEO-REVIEW.md](SEO-REVIEW.md) for the Turkish audit, content opportunities,
+verification limits and external Search Console/Bing tasks. Code changes alone
+do not submit a sitemap, verify account ownership or guarantee indexing.
 
 ## Netlify deployment
 

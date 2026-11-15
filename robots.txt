@@ -1,0 +1,14 @@
+# Search access; no GPTBot-specific training policy is introduced here.
+# No robots.txt or intentional crawl restrictions existed in this checkout.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+
+# Preserve the previously unrestricted default for other crawlers.
+User-agent: *
+Allow: /
+
+Sitemap: https://yormio-app.netlify.app/sitemap.xml
